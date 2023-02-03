@@ -12,7 +12,6 @@
       }
       .flake {
         position: absolute;
-        top: -50px;
         font-size: 20px;
         color: white;
         user-select: none;
@@ -27,6 +26,7 @@
         snowflake.innerHTML = "❄️";
         snowflake.classList.add("flake");
         snowflake.style.left = Math.random() * 100 + "%";
+        snowflake.style.top = Math.random() * -100 + "%";
         snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
         snowflake.style.animationDelay = Math.random() * 5 + "s";
         snowflake.style.animationName = "snow";
@@ -41,10 +41,10 @@
       styles.innerHTML = `
         @keyframes snow {
           0% {
-            transform: translateY(0%) rotate(0deg);
+            transform: translateY(-100%);
           }
           100% {
-            transform: translateY(100%) rotate(360deg);
+            transform: translateY(100%);
           }
         }
       `;
