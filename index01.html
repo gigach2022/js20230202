@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #snow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+      }
+      .flake {
+        position: absolute;
+        top: -50px;
+        font-size: 20px;
+        color: white;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="snow"></div>
+    <script>
+      function generateSnowflake() {
+        const snowflake = document.createElement("span");
+        snowflake.innerHTML = "❄️";
+        snowflake.classList.add("flake");
+        snowflake.style.left = Math.random() * 100 + "%";
+        snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+        snowflake.style.animationDelay = Math.random() * 5 + "s";
+        snowflake.style.animationName = "snow";
+        document.getElementById("snow").appendChild(snowflake);
+      }
+
+      for (let i = 0; i < 50; i++) {
+        generateSnowflake();
+      }
+
+      const styles = document.createElement("style");
+      styles.innerHTML = `
+        @keyframes snow {
+          0% {
+            transform: translateY(0%) rotate(0deg);
+          }
+          100% {
+            transform: translateY(100%) rotate(360deg);
+          }
+        }
+      `;
+      document.head.appendChild(styles);
+    </script>
+  </body>
+</html>
